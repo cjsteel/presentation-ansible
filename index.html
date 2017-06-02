@@ -20,10 +20,11 @@
 <section id="history">
   <h2>anisble, <em>roots,</em> and a bit of history</h2>
   <ul>
-    <li>Ansible was created by Michael DeHaan, the author of the provisioning server application <em>Cobbler</em> (REDHAT 2008 ish?) and co-author of the <em>Func</em> framework for remote administration.</li>
-    <li>Ansible is 4 years old, the first release was February 20, 2012.</li>
-    <li>It's github growth stats are remarkable</li>
-    <li>On 16 October, 2015, Red Hat Inc. announced that it would acquire Ansible, Inc.</li>
+    <li>Created by Michael DeHaan, author of the provisioning server application <em>Cobbler</em> (REDHAT 2008 ish?) and co-author of the <em>Func</em> framework for remote administration.</li>
+    <li>February 20, 2012 - First release (from Michael DeHaan sofa?).</li>
+    <li>March 4, 2013     - Founding of AnsibleWorks (ansibleworks.com) as an Open Source company.</li>
+    <li>October 16, 2015  - Aquired by Redhat</li>
+    <li>May 31st, 2017    - 30,447 commits, 56 branches, 155 releases, 2703 contributors</li>
   </ul>
 </section>
 <section id="thehype">
@@ -44,16 +45,70 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
     </ul>
   </section>
 
+</section>
+
+  <section id="features">
+    <h2><em>Ansibles features:</em></h2>
+    <ul>
+      <li>Idempotent - multiple runs give the same result as the first run*</li>
+      <li>Uses SSH, Agentless</li>
+      <li>Push vs. Pull (but Ansible can be used to pull as well)</li>
+      <li>Excellent documentation</li>
+      <li>Extend with modules in any programming language</li>
+      <li>INI, JSON, YAML, Jinja2, paramiko</li>
+      <li>Way better than duct tape...</li>
+    </ul>
+    <p>* In other words, if you do things right you can <em>ensure</em> for a particular state</p>
+  </section>
+
+</section>
+
+  <section id="modules">
+    <h2><em>A growing list of modules for:</em></h2>
+    <ul>
+      <li>Cloud</li>
+      <li>Clustering</li>
+      <li>Commands</li>
+      <li>Crypto</li>
+      <li>Database</li>
+      <li>Files</li>
+      <li>Identity</li>
+      <li>Inventory</li>
+      <li>Messaging</li>
+      <li>Monitoring</li>
+      <li>Net Tools</li>
+    </ul>
+    <p>not done just yet...</p>
+  </section>
+
+</section>
+
+  <section id="moremodules">
+    <h2><em>and modules for:</em></h2>
+    <ul>
+      <li>Network</li>
+      <li>Notification</li>
+      <li>Packaging</li>
+      <li>Remote Management</li>
+      <li>Source Control</li>
+      <li>Storage</li>
+      <li>System</li>
+      <li>Utilities</li>
+      <li>Web Infrastructure</li>
+      <li>Windows</li>
+    </ul>
+  </section>
+</section>
+
 <section id="some-trivia">
     <h2>a splash of ansible <em>trivia</em></h2>
-    In case you where wondering, the name "Ansible" references the fictional <em>instantaneous hyperspace communication system</em> featured in Orson Scott Card's Ender's Game, and originally invented by Ursula K. Le Guin for her 1966 novel Rocannon's World).
-</section>
+    In case you where wondering, The term <em>ansible</em> was coined by Ursula K. Le Guin in her first novel, Rocannon's World (1966). The term has been widely adopted in science fiction and describes a <em>faster-than-light communicator</em>.</section>
   <section id="requirements">
     <h2><em>Requirements</em></h2>
      <ul>
       <li>nodes require Python 2.4+</li>
       <li>SSH</li>
-      <li>some <em>VM or containers</em>more than one is better...</em></li>
+      <li><em>Disposable VMs, cloud servers or containers</em> are highly recommended for developing scripts.</em></li>
     </ul>
   </section>
 
@@ -61,20 +116,23 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
 
 <section>
   <section id="similar applications">
-    <h2>Other Orchestration Software</h2>
-    Ansible is one of the most recent systems orchestration applications. A number of other applications offer similar abilities:
+    <h2>Other Automation / Orchestration Software</h2>
+    Ansible is one of the most recent systems orchestration applications. A number of similar tools exist:
     <p>
-    <ol>
-      <li>fabric</li>
-      <li>puppet</li>
-      <li>cfengine</li>
-      <li>cobbler - bare metal...</li>
-      <li>chef</li>
+    <ul>
       <li>capistrano</li>
-      <li>Juju</li>
-      <li>Salt</li>
+      <li>cfengine</li>
+      <li>chef</li>
+      <li>cobbler - bare metal...</li>
+      <li>fabric</li>
+      <li>juju</li>
+      <li>maas</li>      
+      <li>puppet</li>
+      <li>rex</li>      
+      <li>salt</li>
+      <li>spacewalk</li>      
       <li>...</li>
-    </ol>
+    </ul>
   </section>
 </section>
 
@@ -86,34 +144,50 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
     <table>
       <tr>
         <td>Playbooks:</td>
-        <td>organize roles, tasks and handlers</td>
+        <td>contain tasks, roles and handlers</td>
       </tr>
       <tr>
         <td>Roles:</td>
-        <td>start with playbooks</td>
+        <td>worry about these later, start with a playbooks</td>
       </tr>
       <tr>
         <td>Tasks:</td>
-        <td>Copy a file, install some things, get a value</td>
+        <td>Copy a file, install some stuff, configure a service, get a value</td>
       </tr>
       <tr>
-        <td>handlers:</td>
+        <td>Handlers:</td>
         <td>Special tasks, usually used for restarting services<br><small>(sets a flag to restart a service at the end of a playbook)<small></td>
       </tr>
       <tr>
-        <td>modules:</td>
-        <td>ansible comes with many, many modules. Switch configuration to clouds and clusters.</td>
+        <td>Modules:</td>
+        <td>ansible comes with many, many modules ranging from network switch configuration to cloud services and clusters.</td>
       </tr>
     </table>
   </section>
 
-  <section id="Task Examples">
+  <section id="task example">
     <h2>Local copy</h2>
     <pre>rsync -a myfile myfilecopy</pre>
     <pre>rsync -a /data/mydir/ /home/prioux/localdir</pre>
   </section>
 </section>
+<section>
+  <section id="task example">
+    <h2>Task example</h2>
+    <p></p>
+   <pre>
+## Configure SSH
 
+- name: "ensure root SSH access is not permitted"
+  lineinfile: dest=/etc/ssh/sshd_config
+              regexp="^PermitRootLogin"
+              line="PermitRootLogin no"
+              state=present
+  notify: ssh restart
+  tags: [ 'packages', 'ssh' ]
+   </pre>
+  </section>
+</section>
 
     </div>
   </div>
