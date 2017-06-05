@@ -15,12 +15,12 @@
   <h2><em>ansible:</em> agentless systems orchestration</h2>
   Christopher Steel
   <br>
-  <span>ACElab Developer Meeting, September(!?) 2016</span>
+  <span>ACElab Developer Meeting, September 2016</span>
 </section>
 <section id="history">
   <h2>anisble, <em>roots,</em> and a bit of history</h2>
   <ul>
-    <li>Created by Michael DeHaan, author of the provisioning server application <em>Cobbler</em> (REDHAT 2008 ish?) and co-author of the <em>Func</em> framework for remote administration.</li>
+    <li>Created by Michael DeHaan, (author of <em>Cobbler</em> and co-author <em>Func</em> a framework for remote administration.</li>
     <li>February 20, 2012 - First release (from Michael DeHaan sofa?).</li>
     <li>March 4, 2013     - Founding of AnsibleWorks (ansibleworks.com) as an Open Source company.</li>
     <li>October 16, 2015  - Aquired by Redhat</li>
@@ -29,7 +29,7 @@
 </section>
 <section id="thehype">
   <h2><em>marketing hype: </em>It's automation for everyone!</h2>
-Deploy apps, Manage systems, Crush complexity, build a strong foundation for DevOps, continuous delivery and document your infrastructure with readable  recipes...
+Deploy apps, manage systems, crush complexity, build a strong foundation for DevOps, continuous delivery and document your infrastructure with easy to read scripts...
 </section>
 
   <section id="whatitsusedfor">
@@ -40,7 +40,7 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
       <li>Application Deployment</li>
       <li>Continuous Delivery</li>
       <li>Security and Compliance</li>
-      <li>Orchestration</li>
+      <li>Systems Orchestration</li>
       <li>Specific or immediate task execution</li>
     </ul>
   </section>
@@ -50,9 +50,9 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
   <section id="features">
     <h2><em>Ansibles features:</em></h2>
     <ul>
-      <li>Idempotent - multiple runs give the same result as the first run*</li>
-      <li>Uses SSH, Agentless</li>
-      <li>Push vs. Pull (but Ansible can be used to pull as well)</li>
+      <li><em>Idempotent</em> - multiple runs give the same result as the first run*</li>
+      <li><em>Uses SSH</em>, Agentless</li>
+      <li><em>Push</em> vs. Pull (but Ansible can be used to pull as well)</li>
       <li>Excellent documentation</li>
       <li>Extend with modules in any programming language</li>
       <li>INI, JSON, YAML, Jinja2, paramiko</li>
@@ -81,12 +81,10 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
     <p>not done just yet...</p>
   </section>
 
-</section>
-
   <section id="moremodules">
-    <h2><em>and modules for:</em></h2>
+    <h2><em>as well as modules for:</em></h2>
     <ul>
-      <li>Network</li>
+      <li>Networking</li>
       <li>Notification</li>
       <li>Packaging</li>
       <li>Remote Management</li>
@@ -99,6 +97,59 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
     </ul>
   </section>
 </section>
+
+  <section id="cloud modules">
+    <h2><em>Cloud Modules:</em></h2>
+    <ul>
+      <li>Amazon</li>
+      <li>Atomic</li>
+      <li>Azure</li>
+      <li>Centurylink</li>
+      <li>Cloudscale</li>
+      <li>Cloudstack</li>
+      <li>Digital Ocean</li>
+      <li>Dimensiondata</li>
+      <li>Docker</li>
+      <li>Google</li>
+      <li>Linode</li>
+      <li>Lxc</li>
+    </ul>
+  </section>
+
+  <section id="morecloudmodules">
+    <h2><em>More Cloud Modules:</em></h2>
+    <ul>
+      <li>Linode</li>
+      <li>Lxc</li>
+      <li>Lxd</li>
+      <li>Misc</li>
+      <li>Openstack</li>
+      <li>Ovh</li>
+      <li>Ovirt</li>
+      <li>Packet</li>
+      <li>Profitbricks</li>
+      <li>Pubnub</li>
+      <li>Rackspace</li>
+      <li>Smartos</li>
+    </ul>
+  </section>
+
+  <section id="still more cloud modules">
+    <h2><em>Still More Cloud Modules:</em></h2>
+    <ul>
+      <li>Softlayer</li>
+      <li>Univention</li>
+      <li>Vmware</li>
+      <li>Webfaction</li>
+      <li>misc - ovirt</li>
+      <li>misc - proxmox</li>
+      <li>misc - kjevm</li>
+      <li>misc - serverless</li>
+      <li>misc - virt</li>
+      <li>misc - xenserver</li>
+    </ul>
+  </section>
+
 
 <section id="some-trivia">
     <h2>a splash of ansible <em>trivia</em></h2>
@@ -131,17 +182,20 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
       <li>rex</li>      
       <li>salt</li>
       <li>spacewalk</li>      
-      <li>...</li>
+
     </ul>
   </section>
 </section>
 
-<section>
   <section id="playbooks, roles, tasks and handlers">
     <h2>playbooks, roles, tasks, handlers and modules</h2>
     Ansible's <em>buidling blocks</em>
     <p>
     <table>
+      <tr>
+        <td>Tasks:</td>
+        <td>Copy a file, install some stuff, configure a service, get a value</td>
+      </tr>
       <tr>
         <td>Playbooks:</td>
         <td>contain tasks, roles and handlers</td>
@@ -151,30 +205,20 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
         <td>worry about these later, start with a playbooks</td>
       </tr>
       <tr>
-        <td>Tasks:</td>
-        <td>Copy a file, install some stuff, configure a service, get a value</td>
+        <td>Modules:</td>
+        <td>ansible comes with many, many modules ranging from network switch configuration to cloud services and clusters.</td>
       </tr>
       <tr>
         <td>Handlers:</td>
         <td>Special tasks, usually used for restarting services<br><small>(sets a flag to restart a service at the end of a playbook)<small></td>
       </tr>
-      <tr>
-        <td>Modules:</td>
-        <td>ansible comes with many, many modules ranging from network switch configuration to cloud services and clusters.</td>
-      </tr>
     </table>
   </section>
 
-  <section id="task example">
-    <h2>Local copy</h2>
-    <pre>rsync -a myfile myfilecopy</pre>
-    <pre>rsync -a /data/mydir/ /home/prioux/localdir</pre>
-  </section>
-</section>
-<section>
+
   <section id="task example">
     <h2>Task example</h2>
-    <p></p>
+    <p>tasks are the basic building blocks of your script. Here we use the <em>lineinfile</em> command from the <em>file module</em></p>
    <pre>
 ## Configure SSH
 
@@ -184,10 +228,89 @@ Deploy apps, Manage systems, Crush complexity, build a strong foundation for Dev
               line="PermitRootLogin no"
               state=present
   notify: ssh restart
-  tags: [ 'packages', 'ssh' ]
+  tags: [ 'security', 'ssh' ]
    </pre>
   </section>
-</section>
+
+  <section id="playbookexample">
+    <h2>Playbook example</h2>
+    <p>Playbooks contain tasks, roles and handlers. This playbook has a single "play". It, like most files in Ansible, is a YAML file</p>
+   <pre>
+---
+- hosts: webservers
+  vars:
+    http_port: 80
+    max_clients: 200
+  remote_user: root
+  tasks:
+  - name: ensure apache is at the latest version
+    yum: name=httpd state=latest
+  - name: write the apache config file
+    template: src=/srv/httpd.j2 dest=/etc/httpd.conf
+    notify:
+    - restart apache
+  - name: ensure apache is running (and enable it at boot)
+    service: name=httpd state=started enabled=yes
+  handlers:
+    - name: restart apache
+      service: name=httpd state=restarted
+   </pre>
+  </section>
+
+  <section id="multiplayplaybookexample">
+    <h2>Playbook with multiple plays</h2>
+    <p>This playbook has a play to configure a webservers and a second play to configure database servers</p>
+   <pre>
+---
+- hosts: webservers
+  remote_user: root
+
+  tasks:
+  - name: ensure apache is at the latest version
+    yum: name=httpd state=latest
+  - name: write the apache config file
+    template: src=/srv/httpd.j2 dest=/etc/httpd.conf
+
+- hosts: databases
+  remote_user: root
+
+  tasks:
+  - name: ensure postgresql is at the latest version
+    yum: name=postgresql state=latest
+  - name: ensure that postgresql is started
+    service: name=postgresql state=started
+   </pre>
+  </section>
+
+  <section id="inventoryfile">
+    <h2>Example of an inventory file</h2>
+    <p>This is a very basic inventory file example (AKA host file). Inventory files are made up of hosts and groups. They can make use of variables and have other special features</p>
+   <pre>
+# file: inventory/dev
+
+[deployment_user]
+workstation-001 ansible_ssh_user=my_admin_user
+workstation-002 ansible_ssh_user=my_admin_user
+
+[firewalls]
+workstation-001 ansible_ssh_user=my_deployment_user
+
+[workstations]
+workstation-001 
+workstation-002
+
+[researchers]
+workstation-001
+
+[developers]
+workstation-002
+
+[slack]
+workstation-001
+workstation-002
+   </pre>
+  </section>
+
 
     </div>
   </div>
